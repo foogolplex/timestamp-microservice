@@ -1,0 +1,26 @@
+{
+  "name": "timestamp-microservice",
+  "version": "1.0.0",
+  "description": "A microservice that serves timestamps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foogolplex/timestamp-microservice.git"
+  },
+  "keywords": [
+    "microservice",
+    "timestamp"
+  ],
+  "author": "Robert Lazarov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foogolplex/timestamp-microservice/issues"
+  },
+  "homepage": "https://github.com/foogolplex/timestamp-microservice#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
