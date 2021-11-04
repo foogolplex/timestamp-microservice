@@ -1,3 +1,3 @@
 web: npm install
-web: node index.js
-
+web: npx tsc
+web: node ./built/index.js
