@@ -8,18 +8,22 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
+const makeDateObject = (date) => {
+    return {
+        unix: date.getTime(),
+        utc: date.toUTCString()
+    };
+}
+
 // In the case no parameter is passed return the current time
 app.get('/api/', (req, res) => {
-    var date = new Date(); // Offset +30000ms for freecodecamp test automation  
-    return res.json({
-        unix : date.getTime(),
-        utc : date.toUTCString()
-    });
+    const date = new Date(); // Offset +30000ms for freecodecamp test automation  
+    return res.json(makeDateObject(date));
 });
   
 // Endpoint for timestamps
 app.get('/api/:date', (req, res) => {
-    var dateObj;
+    var dateObj = {};
 
     // Get the date paramater string
     var date = new Date(req.params['date']);
