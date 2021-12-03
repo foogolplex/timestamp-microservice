@@ -1,4 +1,3 @@
-web: npm install
-web: npx tsc
-web: node ./built/index.js
-web: heroku logs --tail
+web : npm install
+web : npm build
+web : node server/server.js
