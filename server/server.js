@@ -1,12 +1,10 @@
-import express = require('express')
-const app = express()
-const port = process.env.PORT 
+const express = require("express");
+const app = express();
+const path = require('path');
+const port = process.env.PORT || 3000;
+const publicPath = path.join(__dirname, '..', 'public');
 
-app.use(express.static('public'));
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+app.use(express.static(publicPath));
 
 const makeDateObject = (date) => {
     return {
@@ -43,7 +41,11 @@ app.get('/api/:date', (req, res) => {
         return res.json(dateObj);
     }
 });
-  
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(publicPath, 'index.html'));
+});
+
 app.listen(port, () => {
-    console.log(`timestamp-microservice listening at http://localhost:${port}`)
-}) 
+    console.log(`Server running on port:${port}`);
+});
