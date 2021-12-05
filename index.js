@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT 
+const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -8,8 +8,7 @@ app.get('/', (req, res) => {
 
 // In the case no parameter is passed return the current time
 app.get('/api/', (req, res) => {
-    var date = new Date(); // Offset +30000ms for freecodecamp test automation
-  
+    var date = new Date(); // Offset +30000ms for freecodecamp test automation  
     return res.json({
         unix : date.getTime(),
         utc : date.toUTCString()
@@ -21,7 +20,7 @@ app.get('/api/:date', (req, res) => {
     var dateObj;
 
     // Get the date paramater string
-    date = new Date(req.params['date']);
+    var date = new Date(req.params['date']);
     // Convert it to a unix timestamp if invalid
     if(date.toUTCString() == "Invalid Date"){
       date = new Date(parseInt(req.params['date']));
@@ -40,5 +39,5 @@ app.get('/api/:date', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`timestamp-microservice listening at http://localhost:${port}`)
+  console.log(`listening at http://localhost:${port}`)
 })
